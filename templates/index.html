@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>try Django</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <h1>this is index.html inside django</h1> 
+
+    <h2>this person is me</h2>
+    <img src="{% static 'img/albi.png' %}" alt="my photo" height="100" >
+
+    <p>the person inside the image is a real person not an ai generated</p>
+
+    <h2>This is your access record:</h2>
+    <div class="djangolv2">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Accesed</th>
+                </thead>
+                {% for acc_rec in access_records %}
+                    <tr>
+                        <td>{{ acc_rec.name }}</td>
+                        <td>{{ acc_rec.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else  %}
+        <p>NO ACCES RECORDS FOUND</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
